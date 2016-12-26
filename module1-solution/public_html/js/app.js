@@ -9,15 +9,6 @@ function MsgController($scope, $filter) {
   $scope.lunchmenufield = "";
   $scope.lunchmessage = "";
 
-  $scope.sayMessage = function () {
-    var msg = "Yaakov likes to eat healthy snacks at night!";
-    var output = $filter('uppercase')(msg);
-    return output;
-  };
-
-  $scope.feedYaakov = function () {
-    $scope.stateOfBeing = "fed";
-  };
   
   $scope.checkLunch = function() {
     console.log("entered checkLunch function");  
