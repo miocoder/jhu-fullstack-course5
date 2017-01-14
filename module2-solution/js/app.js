@@ -30,7 +30,8 @@ function ShoppingListCheckoffService (){
     service.buyItem = function (index) {
         console.log("BEFORE this.itemsBoughtArray=", service.itemsBoughtArray);
         console.log("Entered service buyItem function with parameter index=", index);
-        var itemToMove = service.itemsToBuyArray.pop(index);
+//        var itemToMove = service.itemsToBuyArray.pop(index);
+        var itemToMove = service.itemsToBuyArray.splice(index,1)[0];
         console.log("Item to move itemToMove=", itemToMove);
         service.itemsBoughtArray.push(itemToMove);
         console.log("AFTER this.itemsBoughtArray=", service.itemsBoughtArray);
