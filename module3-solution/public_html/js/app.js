@@ -41,7 +41,8 @@ function MenuSearchService ($http,$ApiBasePath){
 //              console.log("$http success, menu_items[i]=", menu_items[i]);
 
 //              console.log("item.name.indexOf(searchTerm)=", item.name.indexOf(searchTerm));
-                if (item.description.toLowerCase().indexOf(searchTerm.toLowerCase()) !== -1) {
+                var itemDescr = item.description.toString();
+                if (itemDescr.indexOf(searchTerm.toLowerCase()) !== -1) {
                 foundItems.push(item);  
               };
           };
