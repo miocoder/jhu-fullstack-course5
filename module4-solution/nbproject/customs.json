@@ -1,0 +1,12 @@
+{
+    "elements": {
+        "found-items": {},
+        "my-cats": {},
+        "ui-view": {},
+        "categories": {},
+        "items": {}
+    },
+    "attributes": {
+        "ui-sref": {}
+    }
+}
