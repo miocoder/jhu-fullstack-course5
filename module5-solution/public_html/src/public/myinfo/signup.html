@@ -1,0 +1,104 @@
+<div id="main-content" class="container">
+  <div id="home-tiles" class="row">
+    <div class="col-xs-12">
+    <h1>Simple Form Validation</h1>
+    <fieldset class="col-xs-12">
+      <legend>Registration</legend>
+      <form class="col-xs-12 col-xs-push-3" name='signupForm' novalidate>
+
+        <!-- First Name -->
+        <input style="color:  black" type="text" name="firstname" placeholder="First Name"
+          ng-model="signupCtrl.user.firstname"
+          required
+          minlength="2"
+          ng-maxlength="25">
+          {{ signupCtrl.user.firstname }}
+          <span
+            ng-if="(signupForm.firstname.$error.minlength || signupForm.firstname.$error.required) && signupForm.user.firstname.$touched">
+            First name must be between 2 and 25 characters
+          </span>
+          <span class="alert-danger" style="background-color:  black"  ng-if="signupForm.user.firstname.$error.maxlength && signupForm.user.firstname.$touched">
+            Please enter valid First name between 2 and 25 characters
+          </span>
+          <br>
+
+        <!-- Last Name -->
+          <input style="color:  black" type="text" name="lastname" placeholder="Last Name"
+          ng-model="signupCtrl.user.lastname"
+          required
+          minlength="2"
+          ng-maxlength="25">
+          {{ signupCtrl.user.lastname }}
+          <span
+            ng-if="(signupForm.lastname.$error.minlength || signupForm.lastname.$error.required) && signupForm.user.lastname.$touched">
+            Please enter valid Last name between 2 and 25 characters
+          </span>
+          <span ng-if="signupForm.lastname.$error.maxlength && signupForm.lastname.$touched">
+            Last name must be between 2 and 25 characters
+          </span>
+          <br>
+          
+        <!-- Email -->
+        <input style="color:  black" type="email" name="email" placeholder="Email"
+          ng-model="signupCtrl.user.email"
+          required>
+          {{ signupCtrl.user.email }}
+          <span ng-if="signupForm.email.$invalid && signupForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <!-- Phone -->
+        <input style="color:  black" type="text" name="phone" placeholder="Phone ###-###-####"
+          ng-model="signupCtrl.user.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})">
+          <span ng-if="signupForm.phone.$invalid && signupForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+
+        <!-- Favorite dish -->
+        <input id="dish" style="color:  black" type="text" name="dish" placeholder="A1"
+        ng-model="signupCtrl.user.dish"
+        <!--pattern="(\D{1,2})(\d{1,2})"-->
+        pattern="(\D{1,2}))"
+        minlength="1"
+        ng-maxlength="3"
+        >
+          <span ng-if="signupForm.dish.$invalid && signupForm.dish.$touched">
+            Dish must be in form of 1-2 characters + 1-2 numbers.
+            Examples: A1, B12, SA12 etc...
+          </span>
+          <br>
+
+        <button class="btn btn-success"
+          ng-disabled="signupForm.$invalid"
+          ng-click="signupCtrl.submit()">Submit</button>
+        <span ng-if="signupCtrl.user.completed" class="alert-danger">
+            Your information has been saved!!
+        </span> 
+
+          <div style="margin-top: 10px;">
+            Form valid? {{ signupForm.$valid }}
+            <br>
+            Dish valid? {{ signupForm.dish.$valid }}
+            <br>
+            Dish touched? {{ signupForm.dish.$touched }}
+          </div>
+      </form>
+    </fieldset>
+
+    <div id="info" ng-if="signupCtrl.completed">
+      Username: {{ signupCtrl.user.username}} <br>
+      Email: {{ signupCtrl.user.email}} <br>
+      Phone: {{ signupCtrl.user.phone }}
+    </div>
+    </div>
+    <div class="col-md-4 col-sm-6 col-xs-12">
+    </div>
+    <div class="col-md-4 col-sm-12 col-xs-12">
+
+    </div>
+  </div>
+</div>
+
