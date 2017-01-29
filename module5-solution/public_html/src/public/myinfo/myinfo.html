@@ -7,7 +7,8 @@
       Last Name: {{ myinfoCtrl.user.lastname}} <br>
       Email: {{ myinfoCtrl.user.email}} <br>
       Phone: {{ myinfoCtrl.user.phone }}<br>
-      Favorite dish: {{ myinfoCtrl.user.dish }}<br>
+      Favorite dish chosen: {{ myinfoCtrl.user.dish }}<br>
+      <div ng-if="myinfoCtrl.user.item">
       <!--Favorite item Full {{ myinfoCtrl.user.item }} <br>-->
       Favorite item id: {{ myinfoCtrl.user.item.id }} <br>
       Favorite item name: {{ myinfoCtrl.user.item.name }}<br>
@@ -17,6 +18,10 @@
       Favorite item Directive <br>
       <menu-item menu-item="myinfoCtrl.user.item">
       </menu-item>
+      </div>
+      <div ng-if="!myinfoCtrl.user.item">
+          No such menu number exists 
+      </div>
 
       <br>
     </div>
